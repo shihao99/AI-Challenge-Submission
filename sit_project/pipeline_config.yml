@@ -1,0 +1,16 @@
+nodes:
+- input.visual:
+    source: chair.mp4
+- model.yolo:
+    detect: ["person"]
+- dabble.bbox_to_3d_loc:
+- dabble.check_nearby_objs:
+      near_threshold: 2.25
+- dabble.bbox_count
+- dabble.statistics:
+    identity: count
+- draw.bbox
+- draw.legend:
+    show: ["count", "cum_max", "cum_min"]
+- custom_nodes.dabble.sit
+- output.screen
